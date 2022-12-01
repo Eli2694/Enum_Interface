@@ -16,10 +16,15 @@ namespace TheInterface._30._11._22
         {
             InitializeComponent();
         }
-        // Function That Check Who Has More Kodkodim
         
-
+        
+        // Array of interface IShape
         IShape[] shape = new IShape[100];
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
     interface IShape
@@ -30,30 +35,45 @@ namespace TheInterface._30._11._22
 
     interface Ikodkod
     {
-        void Kodkod();
+        void GetKodkod();
 
-         int kodkod { get; set; }
+         int Kodkod { get; set; }
 
     }
 
     internal class Rectangle : IShape , Ikodkod
     {
+
+        
+
+        // Function From IShape
         public string Color(string color)
         {
             return color;
         }
 
+        // Function From IShape
         public int FrameThickness()
         {
             return length * width;
         }
 
-        public int kodkod { get { return kodkod; } set { kodkod = value; } }
-        public void Kodkod()
+        // Function And Property From Ikodkod
+        public int Kodkod { get; set; }
+        public void GetKodkod()
         {
-            kodkod = 4;
+            Kodkod = 4;
         }
 
+
+        //Constructor
+        public Rectangle(int _Length, int _Width)
+        {
+            Length = _Length;
+            Width = _Width;
+        }
+
+        // Personal Properties
         private int length;
 
         public int Length
@@ -69,6 +89,8 @@ namespace TheInterface._30._11._22
             get { return width; }
             set { width = value; }
         }
+
+        
     }
 
     internal class  Circle : IShape
@@ -76,17 +98,19 @@ namespace TheInterface._30._11._22
         private double PI = 3.14;
 
         public double _PI { get { return PI; } }
+
+        // Function From IShape
         public string Color(string color)
         {
             return color;
         }
-
+        // Function From IShape
         public int FrameThickness()
         {
             
                 return (int)(2 * PI * radius); 
         }
-
+        // Personal Properties
         private int radius;
 
         public int Radius
@@ -94,11 +118,23 @@ namespace TheInterface._30._11._22
             get { return radius; }
             set { radius = value; }
         }
+
+        //Constructor
+        public Circle(int radius)
+        {
+            this.radius = radius;
+        }
     }
 
 
     internal class Ellipse : Circle
     {
+        //Constructor
+        public Ellipse(int radius,int s_radius):base(radius)
+        {
+            this.S_radius = s_radius;
+        }
+
 
         private int s_radius;
         public int S_radius
@@ -106,12 +142,12 @@ namespace TheInterface._30._11._22
             get { return s_radius; }
             set { s_radius = value; }
         }
-
+        // Personal Function Similar To Function In Parent Circle
         public int FrameThickness()
         {
             return (int)(S_radius * Radius * _PI);
         }
-
+        // Personal Function
         public void roll()
         {
             MessageBox.Show("round shape");
@@ -120,15 +156,27 @@ namespace TheInterface._30._11._22
 
     internal class Triangle : IShape, Ikodkod
     {
+        // Function From IShape
         public string Color(string color)
         {
             return color;
         }
 
+        // Function From IShape
         public int FrameThickness()
         {
             return (int)((tbase * theigh) / 2);
         }
+
+
+        //Constructor
+        public Triangle(int Base , int Heigh)
+        {
+            tbase = Base;
+            theigh = Heigh;
+        }
+
+        //Personal Propertise And Functions
 
         private int tbase;
 
@@ -146,26 +194,41 @@ namespace TheInterface._30._11._22
             set { theigh = value; }
         }
 
-        public int kodkod { get { return kodkod; } set { kodkod = value; } }
-        public void Kodkod()
+        
+
+        // Function And Property From Ikodkod
+        public int Kodkod { get; set; }
+        public void GetKodkod()
         {
-            kodkod = 3;
+            Kodkod = 3;
         }
 
     }
 
     internal class Moon : IShape, Ikodkod
     {
+
+        //Constructor
+
+        public Moon(int Distance)
+        {
+            distanceBetweenTipsOfTheMoon = Distance;
+        }
+
         private double PI = 3.14;
+
+        // Function From IShape
         public string Color(string color)
         {
             return color;
         }
+        // Function From IShape
         public int FrameThickness()
         {
             return (int)(distanceBetweenTipsOfTheMoon * PI);
         }
 
+        //Personal
         private int distanceBetweenTipsOfTheMoon;
 
         public int DistanceBetweenTipsOfTheMoon
@@ -173,11 +236,11 @@ namespace TheInterface._30._11._22
             get { return distanceBetweenTipsOfTheMoon; }
             set { distanceBetweenTipsOfTheMoon = value; }
         }
-
-        public int kodkod { get { return kodkod; } set { kodkod = value; } }
-        public void Kodkod()
+        // Function And Property From Ikodkod
+        public int Kodkod { get; set; }
+        public void GetKodkod()
         {
-            kodkod = 2;
+            Kodkod = 2;
         }
 
     }

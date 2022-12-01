@@ -35,3 +35,4 @@ C:\Users\User\Source\Repos\Enum_Interface_IDisposable\TheInterface.30.11.22\obj\
 C:\Users\User\Source\Repos\Enum_Interface_IDisposable\TheInterface.30.11.22\obj\Debug\net6.0-windows\TheInterface.30.11.22.pdb
 C:\Users\User\Source\Repos\Enum_Interface_IDisposable\TheInterface.30.11.22\obj\Debug\net6.0-windows\TheInterface.30.11.22.genruntimeconfig.cache
 C:\Users\User\Source\Repos\Enum_Interface_IDisposable\TheInterface.30.11.22\obj\Debug\net6.0-windows\ref\TheInterface.30.11.22.dll
+C:\Users\User\source\repos\TheInterface.30.11.22\TheInterface.30.11.22\obj\Debug\net6.0-windows\TheInterface._30._11._22.Form3.resources

@@ -11,7 +11,7 @@ namespace TheInterface._30._11._22
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Manager.Runner();
+            //Manager.Runner();
             Application.Run(new Form3());
             
         }

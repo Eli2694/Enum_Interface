@@ -10,16 +10,17 @@ namespace TheInterface._30._11._22
     {
         public static void Runner()
         {
-            Rectangle rectangle = new Rectangle();
-            Moon moon = new Moon();
+            Rectangle rectangle = new Rectangle(5,7);
+            rectangle.GetKodkod();
+            Moon moon = new Moon(10);
+            moon.GetKodkod();
             Ikodkod I = kodkodCompare(rectangle, moon);
-            Console.ReadLine();
         }
 
         // Out of bounds because the function has nothing to do with Shape Classes
         public static Ikodkod kodkodCompare(Ikodkod shape1, Ikodkod shape2)
         {
-            if (shape1.kodkod > shape2.kodkod)
+            if (shape1.Kodkod > shape2.Kodkod)
             {
                 return shape1;
             }
