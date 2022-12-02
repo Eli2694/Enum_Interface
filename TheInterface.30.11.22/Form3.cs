@@ -36,7 +36,7 @@ namespace TheInterface._30._11._22
             if(Rectangle.Checked)
             {
                 shape[arrCounter] = new Rectangle(int.Parse(R_Width.Text), int.Parse(R_Heigh.Text));
-                shape[arrCounter].GetKodkod();
+                
                 arrCounter++;
                 Rectangle.Checked = false;
             }
@@ -44,7 +44,7 @@ namespace TheInterface._30._11._22
             if (Circle.Checked)
             {
                 shape[arrCounter] = new Circle(int.Parse(Radius.Text));
-                shape[arrCounter].GetKodkod();
+                
                 arrCounter++;
                 Circle.Checked = false;
             }
@@ -52,7 +52,7 @@ namespace TheInterface._30._11._22
             if (Ellipse.Checked)
             {
                 shape[arrCounter] = new Ellipse(int.Parse(Radius.Text),int.Parse(El_Radius.Text));
-                shape[arrCounter].GetKodkod();
+                
                 arrCounter++;
                 Ellipse.Checked = false;
             }
@@ -60,7 +60,7 @@ namespace TheInterface._30._11._22
             if (Triangle.Checked)
             {
                 shape[arrCounter] = new Triangle(int.Parse(Tr_Base.Text), int.Parse(Tr_Heigh.Text));
-                shape[arrCounter].GetKodkod();
+               
                 arrCounter++;
                 Triangle.Checked = false;
             }
@@ -68,7 +68,7 @@ namespace TheInterface._30._11._22
             if (Moon.Checked)
             {
                 shape[arrCounter] = new Moon(int.Parse(Distance.Text));
-                shape[arrCounter].GetKodkod();
+                
                 arrCounter++;
                 Moon.Checked = false;
             }
@@ -148,8 +148,8 @@ namespace TheInterface._30._11._22
     {
         string Color(string color);
         int FrameThickness(); // Scope   
-        void GetKodkod();
-        public int Kodkod { get; set; }
+        
+        public int Kodkod { get;}
 
     }
 
@@ -179,11 +179,7 @@ namespace TheInterface._30._11._22
         }
 
         // Function From IShape
-        public int Kodkod { get; set; }
-        public void GetKodkod()
-        {
-            Kodkod = 4;
-        }
+        public int Kodkod { get { return 4; } }
 
 
         // Personal Properties
@@ -243,11 +239,8 @@ namespace TheInterface._30._11._22
 
 
         // Function From IShape
-        public int Kodkod { get; set; }
-        public void GetKodkod()
-        {
-            Kodkod = 0;
-        }
+        public int Kodkod { get { return 0; } }
+      
     }
 
 
@@ -318,11 +311,8 @@ namespace TheInterface._30._11._22
         }
 
         // Function From IShape
-        public int Kodkod { get; set; }
-        public void GetKodkod()
-        {
-            Kodkod = 3;
-        }
+        public int Kodkod { get { return 3; } }
+        
 
     }
 
@@ -357,11 +347,8 @@ namespace TheInterface._30._11._22
             set { distanceBetweenTipsOfTheMoon = value; }
         }
         // Function From IShape
-        public int Kodkod { get; set; }
-        public void GetKodkod()
-        {
-            Kodkod = 2;
-        }
+        public int Kodkod { get { return 2; } }
+      
 
     }
 }
