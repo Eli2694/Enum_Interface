@@ -21,7 +21,124 @@ namespace TheInterface._30._11._22
         // Array of interface IShape
         IShape[] shape = new IShape[100];
 
+        // Counter of array
+        public int arrCounter = 0;
+        public int ResultCount = 0;
+        public int SumOfKodkods = 0;
+
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            if(Rectangle.Checked)
+            {
+                shape[arrCounter] = new Rectangle(int.Parse(R_Width.Text), int.Parse(R_Heigh.Text));
+                shape[arrCounter].GetKodkod();
+                arrCounter++;
+                Rectangle.Checked = false;
+            }
+
+            if (Circle.Checked)
+            {
+                shape[arrCounter] = new Circle(int.Parse(Radius.Text));
+                shape[arrCounter].GetKodkod();
+                arrCounter++;
+                Circle.Checked = false;
+            }
+
+            if (Ellipse.Checked)
+            {
+                shape[arrCounter] = new Ellipse(int.Parse(Radius.Text),int.Parse(El_Radius.Text));
+                shape[arrCounter].GetKodkod();
+                arrCounter++;
+                Ellipse.Checked = false;
+            }
+
+            if (Triangle.Checked)
+            {
+                shape[arrCounter] = new Triangle(int.Parse(Tr_Base.Text), int.Parse(Tr_Heigh.Text));
+                shape[arrCounter].GetKodkod();
+                arrCounter++;
+                Triangle.Checked = false;
+            }
+
+            if (Moon.Checked)
+            {
+                shape[arrCounter] = new Moon(int.Parse(Distance.Text));
+                shape[arrCounter].GetKodkod();
+                arrCounter++;
+                Moon.Checked = false;
+            }
+
+
+        }
+
+        private void ShowResults_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < arrCounter; i++)
+            {
+                if(i == ResultCount)
+                {
+                    SumOfKodkods = SumOfKodkods + shape[ResultCount].Kodkod;
+                    ResultCount++;
+                }
+                
+            }
+
+            L_KodkodSum.Text ="Sum Of Kodkods:" + " " + SumOfKodkods.ToString();
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < arrCounter; i++)
+            {
+                if (shape[i] != null)
+                {
+                    shape[i] = null;
+                }
+                
+            }
+            arrCounter = 0;
+            ResultCount = 0;
+            SumOfKodkods = 0;
+            L_KodkodSum.Text = "Sum Of Kodkods: 0";
+
+        }
+
+        private void Moon_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Triangle_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ellipse_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Circle_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rectangle_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
@@ -31,20 +148,23 @@ namespace TheInterface._30._11._22
     {
         string Color(string color);
         int FrameThickness(); // Scope   
-    }
-
-    interface Ikodkod
-    {
         void GetKodkod();
-
-         int Kodkod { get; set; }
+        public int Kodkod { get; set; }
 
     }
 
-    internal class Rectangle : IShape , Ikodkod
+    
+
+    internal class Rectangle : IShape 
     {
 
-        
+        //Constructor
+        public Rectangle(int _Length, int _Width)
+        {
+            Length = _Length;
+            Width = _Width;
+        }
+
 
         // Function From IShape
         public string Color(string color)
@@ -58,20 +178,13 @@ namespace TheInterface._30._11._22
             return length * width;
         }
 
-        // Function And Property From Ikodkod
+        // Function From IShape
         public int Kodkod { get; set; }
         public void GetKodkod()
         {
             Kodkod = 4;
         }
 
-
-        //Constructor
-        public Rectangle(int _Length, int _Width)
-        {
-            Length = _Length;
-            Width = _Width;
-        }
 
         // Personal Properties
         private int length;
@@ -95,9 +208,13 @@ namespace TheInterface._30._11._22
 
     internal class  Circle : IShape
     {
-        private double PI = 3.14;
 
-        public double _PI { get { return PI; } }
+        //Constructor
+        public Circle(int Radius)
+        {
+            radius = Radius;
+        }
+
 
         // Function From IShape
         public string Color(string color)
@@ -119,10 +236,17 @@ namespace TheInterface._30._11._22
             set { radius = value; }
         }
 
-        //Constructor
-        public Circle(int radius)
+        private double PI = 3.14;
+
+        public double _PI { get { return PI; } }
+
+
+
+        // Function From IShape
+        public int Kodkod { get; set; }
+        public void GetKodkod()
         {
-            this.radius = radius;
+            Kodkod = 0;
         }
     }
 
@@ -134,7 +258,6 @@ namespace TheInterface._30._11._22
         {
             this.S_radius = s_radius;
         }
-
 
         private int s_radius;
         public int S_radius
@@ -154,8 +277,16 @@ namespace TheInterface._30._11._22
         }
     }
 
-    internal class Triangle : IShape, Ikodkod
+    internal class Triangle : IShape
     {
+
+        //Constructor
+        public Triangle(int Base, int Heigh)
+        {
+            tbase = Base;
+            theigh = Heigh;
+        }
+
         // Function From IShape
         public string Color(string color)
         {
@@ -166,14 +297,6 @@ namespace TheInterface._30._11._22
         public int FrameThickness()
         {
             return (int)((tbase * theigh) / 2);
-        }
-
-
-        //Constructor
-        public Triangle(int Base , int Heigh)
-        {
-            tbase = Base;
-            theigh = Heigh;
         }
 
         //Personal Propertise And Functions
@@ -194,9 +317,7 @@ namespace TheInterface._30._11._22
             set { theigh = value; }
         }
 
-        
-
-        // Function And Property From Ikodkod
+        // Function From IShape
         public int Kodkod { get; set; }
         public void GetKodkod()
         {
@@ -205,11 +326,10 @@ namespace TheInterface._30._11._22
 
     }
 
-    internal class Moon : IShape, Ikodkod
+    internal class Moon : IShape
     {
 
         //Constructor
-
         public Moon(int Distance)
         {
             distanceBetweenTipsOfTheMoon = Distance;
@@ -236,7 +356,7 @@ namespace TheInterface._30._11._22
             get { return distanceBetweenTipsOfTheMoon; }
             set { distanceBetweenTipsOfTheMoon = value; }
         }
-        // Function And Property From Ikodkod
+        // Function From IShape
         public int Kodkod { get; set; }
         public void GetKodkod()
         {

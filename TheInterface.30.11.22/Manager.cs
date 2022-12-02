@@ -14,11 +14,11 @@ namespace TheInterface._30._11._22
             rectangle.GetKodkod();
             Moon moon = new Moon(10);
             moon.GetKodkod();
-            Ikodkod I = kodkodCompare(rectangle, moon);
+            IShape I = kodkodCompare(rectangle, moon);
         }
 
         // Out of bounds because the function has nothing to do with Shape Classes
-        public static Ikodkod kodkodCompare(Ikodkod shape1, Ikodkod shape2)
+        public static IShape kodkodCompare(IShape shape1, IShape shape2)
         {
             if (shape1.Kodkod > shape2.Kodkod)
             {
